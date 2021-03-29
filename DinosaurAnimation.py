@@ -51,7 +51,6 @@ def cacti_pos():
         on_draw.dino_y = 120
 
 
-
 def on_draw(delta_time):
     if on_draw.cactus_x <= 0:
         on_draw.cactus_x = 1280
