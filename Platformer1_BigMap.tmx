@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="128" tileheight="128" infinite="0" backgroundcolor="#003cb5" nextlayerid="6" nextobjectid="1">
+ <tileset firstgid="1" source="../../../../../../../../OneDrive/Desktop/my_tiles.tsx"/>
+ <tileset firstgid="63" source="grass.tsx"/>
+ <tileset firstgid="82" source="more_tiles.tsx"/>
+ <tileset firstgid="230" source="dirt.tsx"/>
+ <tileset firstgid="248" source="items.tsx"/>
+ <layer id="1" name="Platforms" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2E1KAzEYxvF4Ae9UEHTjt+LGS3ShuJKeoGfwFoI9gAsR1PpF7+DWtQmdwfRlkknqOMmQ/w8exGlLZ94nmRGVAhDqNvUJQN3p3Dsyq95DT/mw+5q1vBcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBzs6RzobInj+9Xx3d7PqFzXOjs6xzqbG6uvjapsq2UvMZHdop3p4kotZ36klp3Yxuq3k9iUzF6Xh4GfqbuoZ36q86XzbWUsMmo45op0oTOxchlxfUPTdP0+dhcm5xEJ7aRkMddvdxHTQ2xK5urDzH4i0kcX9LF6j5+o1dnLuGY49bxGH+FCn7EmU08eOkzJ1u2jy/mX3oHNt+Zj94IPPYRhXecltx4+dRZWzkQW/5CPf7yeWKnXupz/S4/nVH/Hs8qnk777aJt/ivthTp3U1930P8GumS7a5p9qr9adPCX4bnkepoeTKuu4qX7KtS8T0kXpzAxin3OuuYeufXpw883I7N+u504Hfl3MNYeZN+3Z0Odz2322Tp/PlqH2YLj+TnDt79j9ntKQuyhJDrOX5L5AOnSRzqPy3/NLMPf8/qrzpvPe3+mgInv5q7rLttA1hmRuxcZ6BwAAQM5+AEwur6w=
+  </data>
+ </layer>
+ <layer id="4" name="Background" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1TEKgDAQBMD4Af/nIxT/XwXBzjTB4IKZaVIkxbJwl1IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6HEOegO0bekAQNxxn+vyvEvsiFaOmezpAADw0ux/OVzMwXd0PVZPn7rP0DsAAAAAAAAAf1YB4G4C5g==
+  </data>
+ </layer>
+ <layer id="3" name="Ladders" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt0UENACAQwDC0g3HeJ4CwR6tgydYCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4KXzO4Bh/w5g8KPFjxY/Wvxo8aPFjxY/Wvxo8aPFDwAAAAAAAAAAoO4CJqIGGg==
+  </data>
+ </layer>
+ <layer id="2" name="Coins" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2DEKACEMBED//7P7kV4lB/YiRCLnTJPGYkEirKUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEKVmBzjQmx2ALXbfq10CAAAA/shfGRClLZz19uR4sgMAAECgWQdZ6Sic7+uRdUydEgAAgNt1ICsNcw==
+  </data>
+ </layer>
+</map>
