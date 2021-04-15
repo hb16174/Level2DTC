@@ -1,5 +1,5 @@
 import arcade
-
+# window size
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 300
 
