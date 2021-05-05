@@ -30,8 +30,8 @@ RIGHT_VIEWPORT_MARGIN = 200
 BOTTOM_VIEWPORT_MARGIN = 150
 TOP_VIEWPORT_MARGIN = 100
 
-PLAYER_START_X = 100 # SPRITE_PIXEL_SIZE * TILE_SCALING * 2
-PLAYER_START_Y = 2000 # SPRITE_PIXEL_SIZE * TILE_SCALING * 1
+PLAYER_START_X = 100  # SPRITE_PIXEL_SIZE * TILE_SCALING * 2
+PLAYER_START_Y = 2000  # SPRITE_PIXEL_SIZE * TILE_SCALING * 1
 
 # Constants used to track if the player is facing left or right
 RIGHT_FACING = 0
@@ -296,7 +296,7 @@ class MyGame(arcade.Window):
                          arcade.csscolor.BLACK, 18)
 
         # Draw hit boxes.
-        if self.h_pressed == True:
+        if self.h_pressed:
             for wall in self.wall_list:
                 wall.draw_hit_box(arcade.color.BLACK, 3)
 
