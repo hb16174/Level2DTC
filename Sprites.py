@@ -1,6 +1,5 @@
 """
 Platformer Game
-
 python -m arcade.examples.platform_tutorial.11_animate_character
 """
 import arcade
@@ -50,6 +49,7 @@ def load_texture_pair(filename):
 
 class PlayerCharacter(arcade.Sprite):
     """ Player Sprite"""
+
     def __init__(self):
 
         # Set up parent class
@@ -72,10 +72,10 @@ class PlayerCharacter(arcade.Sprite):
         # Images from Kenney.nl's Asset Pack 3
         # main_path = ":resources:images/animated_characters/female_adventurer/femaleAdventurer"
         # main_path = ":resources:images/animated_characters/female_person/femalePerson"
-        main_path = ":resources:images/animated_characters/male_person/malePerson"
+        # main_path = ":resources:images/animated_characters/male_person/malePerson"
         # main_path = ":resources:images/animated_characters/male_adventurer/maleAdventurer"
         # main_path = ":resources:images/animated_characters/zombie/zombie"
-        # main_path = ":resources:images/animated_characters/robot/robot"
+        main_path = ":resources:images/animated_characters/robot/robot"
 
         # Load textures for idle standing
         self.idle_texture_pair = load_texture_pair(f"{main_path}_idle.png")
@@ -104,7 +104,7 @@ class PlayerCharacter(arcade.Sprite):
 
         self.set_hit_box(self.texture.hit_box_points)
 
-    def update_animation(self, delta_time: float = 1/60):
+    def update_animation(self, delta_time: float = 1 / 60):
 
         # Figure out if we need to flip face left or right
         if self.change_x < 0 and self.character_face_direction == RIGHT_FACING:
@@ -200,6 +200,7 @@ class MyGame(arcade.Window):
         self.collect_coin_sound = arcade.load_sound(":resources:sounds/coin1.wav")
         self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
         self.game_over = arcade.load_sound(":resources:sounds/gameover1.wav")
+        self.background_music = arcade.load_sound(":resources:music/funkyrobot.mp3")
 
     def setup(self):
         """ Set up the game here. Call this function to restart the game. """
@@ -212,6 +213,7 @@ class MyGame(arcade.Window):
         self.score = 0
 
         # Create the Sprite lists
+        arcade.play_sound(self.background_music)
         self.player_list = arcade.SpriteList()
         self.background_list = arcade.SpriteList()
         self.wall_list = arcade.SpriteList()
@@ -314,7 +316,7 @@ class MyGame(arcade.Window):
                 self.player_sprite.change_y = PLAYER_JUMP_SPEED
                 self.jump_needs_reset = True
                 arcade.play_sound(self.jump_sound)
-            elif self.hack == True:
+            elif self.hack:
                 self.player_sprite.change_y = PLAYER_JUMP_SPEED
                 arcade.play_sound(self.jump_sound)
         elif self.down_pressed and not self.up_pressed:
@@ -330,9 +332,15 @@ class MyGame(arcade.Window):
 
         # Process left/right
         if self.right_pressed and not self.left_pressed:
-            self.player_sprite.change_x = PLAYER_MOVEMENT_SPEED
+            if self.hack:
+                self.player_sprite.change_x = PLAYER_MOVEMENT_SPEED*2
+            else:
+                self.player_sprite.change_x = PLAYER_MOVEMENT_SPEED
         elif self.left_pressed and not self.right_pressed:
-            self.player_sprite.change_x = -PLAYER_MOVEMENT_SPEED
+            if self.hack:
+                self.player_sprite.change_x = -PLAYER_MOVEMENT_SPEED*2
+            else:
+                self.player_sprite.change_x = -PLAYER_MOVEMENT_SPEED
         else:
             self.player_sprite.change_x = 0
 
@@ -356,20 +364,20 @@ class MyGame(arcade.Window):
         if key == arcade.key.ESCAPE:
             self.setup()
         if key == arcade.key.H:
-            if self.h_pressed == True:
+            if self.h_pressed:
                 self.h_pressed = False
 
             else:
                 self.h_pressed = True
 
         if key == arcade.key.C:
-            if self.infcoins == True:
+            if self.infcoins:
                 self.infcoins = False
             else:
                 self.infcoins = True
 
         if key == arcade.key.E:
-            if self.hack == True:
+            if self.hack:
                 self.hack = False
             else:
                 self.hack = True
@@ -438,7 +446,7 @@ class MyGame(arcade.Window):
                 self.score += points
 
             # Remove the coin
-            if self.infcoins == False:
+            if not self.infcoins:
                 coin.remove_from_sprite_lists()
             arcade.play_sound(self.collect_coin_sound)
 
